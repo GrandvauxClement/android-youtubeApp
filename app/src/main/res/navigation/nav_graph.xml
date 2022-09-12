@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/youtubeVideoListFragment">
+
+    <fragment
+        android:id="@+id/youtubeVideoListFragment"
+        android:name="fr.grandvauxclement.bestyoutubeapp.YoutubeVideoListFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/youtube_video_list_fragment">
+        <action
+            android:id="@+id/action_youtubeVideoListFragment_to_youtubeVideoDetailFragment"
+            app:destination="@id/youtubeVideoDetailFragment" />
+        <action
+            android:id="@+id/action_youtubeVideoListFragment_to_addYoutubeVideoFragment"
+            app:destination="@id/addYoutubeVideoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/youtubeVideoDetailFragment"
+        android:name="fr.grandvauxclement.bestyoutubeapp.YoutubeVideoDetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_youtube_video_detail">
+        <argument
+            android:name="item_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_youtubeVideoDetailFragment_to_addYoutubeVideoFragment"
+            app:destination="@id/addYoutubeVideoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addYoutubeVideoFragment"
+        android:name="fr.grandvauxclement.bestyoutubeapp.AddYoutubeVideoFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_add_youtube_video">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="item_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_addYoutubeVideoFragment_to_youtubeVideoListFragment"
+            app:destination="@id/youtubeVideoListFragment"
+            app:popUpTo="@id/youtubeVideoListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
